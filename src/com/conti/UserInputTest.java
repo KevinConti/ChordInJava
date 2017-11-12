@@ -18,4 +18,5 @@ class UserInputTest {
         UserInput input = new UserInput(3, 100);
         assertFalse(input.verifyInput(), "Expected false");
     }
+
 }
