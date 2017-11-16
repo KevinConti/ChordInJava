@@ -1,24 +1,24 @@
 package com.conti;
 
 
-class UserInput {
+public class UserInput {
     private int b;
     private int n;
 
-    UserInput(int b, int n) {
+    public UserInput(int b, int n) {
         this.b = b;
         this.n = n;
     }
 
-    int getB() {
+    public int getB() {
         return b;
     }
 
-    int getN() {
+    public int getN() {
         return n;
     }
 
-    boolean verifyInput(){
+    public boolean verifyInput(){
         //Checks the following requirements:
         //1) n cannot be greater than 2^b
         //returns a boolean on whether or not it passes the input test
