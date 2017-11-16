@@ -1,16 +1,17 @@
-import java.util.Dictionary;
+import java.util.HashMap;
 import com.conti.UserInput;
 
+
 public class Node {
-    public static Dictionary<Integer, Boolean> allExistingNodeIds;
+    public static HashMap<Integer, Boolean> allExistingNodeIds = new HashMap<>();
     private UserInput userInput;
     private int nodeId;
     private FingerTable fingerTable;
 
     public Node(FingerTable fingerTable, UserInput userInput) {
         this.fingerTable = fingerTable;
-        this.nodeId = createRandomId();
         this.userInput = userInput;
+        this.nodeId = createRandomId();
         allExistingNodeIds.put(nodeId, true);
     }
 
@@ -26,16 +27,19 @@ public class Node {
     }
 
     private int generatePossibleId(){
-        int max = (int) Math.pow(2, userInput.getB());
+        int max = (int) Math.pow(2, this.userInput.getB());
 
         int range = max + 1;
-        return (int)(Math.random() * range);
+        return (int)(Math.random() * range + 1);
     }
 
     private boolean checkForUniqueId(int id){
         boolean isUnique;
-        isUnique = !allExistingNodeIds.get(id);
-        return isUnique;
+            if (allExistingNodeIds.get(id) == null){
+                isUnique = true;
+            }
+            else isUnique = false;
+            return isUnique;
     }
 
     public int getNodeID() {

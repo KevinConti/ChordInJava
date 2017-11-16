@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         UserInput input = getUserInput();
-        //TODO createNodes();
+        createNodes(input);
     }
 
     private static UserInput getUserInput() {
@@ -45,5 +45,9 @@ public class Main {
             System.out.println("Please retry to enter your values");
             getUserInput();
         }
+    }
+
+    private static void createNodes(UserInput userInput){
+        
     }
 }
