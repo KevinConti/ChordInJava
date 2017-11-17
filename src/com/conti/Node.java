@@ -43,7 +43,7 @@ public class Node {
             return isUnique;
     }
 
-    public int getNodeID() {
+    public int getNodeId() {
         return nodeId;
     }
 
