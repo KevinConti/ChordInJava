@@ -1,16 +1,14 @@
 package com.conti;
-import java.util.HashMap;
-import java.util.InputMismatchException;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class Main {
 
     public static void main(String[] args) {
         UserInput input = getUserInput();
-        //HashMap<Integer, Node> nodeObjectsById = createNodes(input);
-        //createFingerTables(input, nodeObjectsById)  may need to send in some args
+        HashMap<Integer, Node> nodeObjectsById = createNodes(input);
+        System.out.println("Debug: All the keys are: " + nodeObjectsById.keySet());
+        createFingerTables(input, nodeObjectsById);
         //createRandomKeyId(input);
         //display
     }
@@ -53,8 +51,25 @@ public class Main {
         }
     }
 
-    private static Map createNodes(UserInput userInput){
-        //This class returns a HashMap
-        return null;
+    private static HashMap<Integer, Node> createNodes(UserInput userInput){
+        int numberOfNodes = userInput.getN();
+        HashMap<Integer, Node> allNodesById = new HashMap<>();
+        for (int i = 0; i < numberOfNodes; i++){
+            Node node = new Node(userInput);
+            int nodeId = node.getNodeId();
+            System.out.println("Debug: Created node with id: "+nodeId);
+            allNodesById.put(nodeId, node);
+        }
+        return allNodesById;
+    }
+
+    private static void createFingerTables(UserInput userInput, HashMap<Integer, Node> nodeObjectsById) {
+        int numberOfNodes = userInput.getN();
+        Collection<Node> allNodes = nodeObjectsById.values();
+        System.out.println("Debug: allNodes Collection: "+allNodes);
+        for(Node node: allNodes){
+            FingerTable fingerTable = new FingerTable(userInput, node, nodeObjectsById);
+            node.setFingerTable(fingerTable);
+        }
     }
 }

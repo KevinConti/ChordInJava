@@ -1,3 +1,5 @@
+package com.conti;
+
 import java.util.HashMap;
 import com.conti.UserInput;
 
@@ -41,7 +43,7 @@ public class Node {
             return isUnique;
     }
 
-    public int getNodeID() {
+    public int getNodeId() {
         return nodeId;
     }
 
