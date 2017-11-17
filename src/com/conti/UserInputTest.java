@@ -14,7 +14,13 @@ class UserInputTest {
 
     @Test
     void whenNIsTooLargeVerifyInputFails(){
-        UserInput input = new UserInput(3, 100);
+        UserInput input = new UserInput(6, 100);
+        assertFalse(input.verifyInput(), "Expected false");
+    }
+
+    @Test
+    void whenBIsTooSmallVerifyInputFails(){
+        UserInput input = new UserInput(3, 6);
         assertFalse(input.verifyInput(), "Expected false");
     }
 
