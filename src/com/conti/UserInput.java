@@ -20,10 +20,10 @@ public class UserInput {
 
     public boolean verifyInput(){
         //Checks the following requirements:
-        //1) n cannot be greater than 2^b
-        //returns a boolean on whether or not it passes the input test
-        int maxValue = (int) Math.pow(2, this.getB());
-        boolean nIsWithinRange = this.getN() <= maxValue;
-        return nIsWithinRange;
+        //1) 5 <= n <= 15
+        //2) 5 <= B <= 10
+        boolean nIsWithinRange = this.getN() <= 15 && this.getN() >= 5;
+        boolean bIsWithinRange = this.getB() <= 10 && this.getB() >= 5;
+        return (nIsWithinRange && bIsWithinRange);
     }
 }

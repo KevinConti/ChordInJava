@@ -8,14 +8,13 @@ public class Node {
     private int nodeId;
     private FingerTable fingerTable;
 
-    public Node(FingerTable fingerTable, UserInput userInput) {
-        this.fingerTable = fingerTable;
+    public Node(UserInput userInput) {
         this.userInput = userInput;
-        this.nodeId = createRandomId();
+        this.nodeId = createRandomUniqueId();
         allExistingNodeIds.put(nodeId, true);
     }
 
-    private int createRandomId(){
+    private int createRandomUniqueId(){
         boolean isUnique = false;
         int id = -1;
         while (!isUnique) {
@@ -48,5 +47,9 @@ public class Node {
 
     public FingerTable getFingerTable() {
         return fingerTable;
+    }
+
+    public void setFingerTable(FingerTable fingerTable) {
+        this.fingerTable = fingerTable;
     }
 }

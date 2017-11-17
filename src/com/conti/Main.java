@@ -1,12 +1,18 @@
 package com.conti;
+import java.util.HashMap;
 import java.util.InputMismatchException;
+import java.util.Map;
 import java.util.Scanner;
+
 
 public class Main {
 
     public static void main(String[] args) {
         UserInput input = getUserInput();
-        createNodes(input);
+        //HashMap<Integer, Node> nodeObjectsById = createNodes(input);
+        //createFingerTables(input, nodeObjectsById)  may need to send in some args
+        //createRandomKeyId(input);
+        //display
     }
 
     private static UserInput getUserInput() {
@@ -47,7 +53,8 @@ public class Main {
         }
     }
 
-    private static void createNodes(UserInput userInput){
-        
+    private static Map createNodes(UserInput userInput){
+        //This class returns a HashMap
+        return null;
     }
 }
