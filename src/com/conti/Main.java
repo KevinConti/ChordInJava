@@ -7,10 +7,12 @@ public class Main {
     public static void main(String[] args) {
         UserInput input = getUserInput();
         HashMap<Integer, Node> nodeObjectsById = createNodes(input);
-        System.out.println("Debug: All the keys are: " + nodeObjectsById.keySet());
         createFingerTables(input, nodeObjectsById);
-        //createRandomKeyId(input);
-        //display
+        int randomKey = createRandomKeyId(input);
+        Node nStart = determineStartNode(nodeObjectsById);
+        System.out.println("");
+        System.out.println("The randomKeyId is "+randomKey);
+        System.out.println("The starting node will be "+nStart);
     }
 
     private static UserInput getUserInput() {
@@ -57,7 +59,6 @@ public class Main {
         for (int i = 0; i < numberOfNodes; i++){
             Node node = new Node(userInput);
             int nodeId = node.getNodeId();
-            System.out.println("Debug: Created node with id: "+nodeId);
             allNodesById.put(nodeId, node);
         }
         return allNodesById;
@@ -66,10 +67,29 @@ public class Main {
     private static void createFingerTables(UserInput userInput, HashMap<Integer, Node> nodeObjectsById) {
         int numberOfNodes = userInput.getN();
         Collection<Node> allNodes = nodeObjectsById.values();
-        System.out.println("Debug: allNodes Collection: "+allNodes);
         for(Node node: allNodes){
             FingerTable fingerTable = new FingerTable(userInput, node, nodeObjectsById);
             node.setFingerTable(fingerTable);
+            System.out.println("Debug: Finger Table = \n"+fingerTable);
         }
+    }
+
+    private static int createRandomKeyId(UserInput userInput){
+        int max = (int) Math.pow(2, userInput.getB());
+
+        int range = max + 1;
+        return (int)(Math.random() * range + 1);
+    }
+
+    private static Node determineStartNode(HashMap<Integer, Node> nodeObjectsById) {
+        Set<Integer> keySet = nodeObjectsById.keySet();
+        TreeSet<Integer> sortedKeys = new TreeSet<>(keySet);
+        int firstNode = sortedKeys.first();
+        int secondNode = sortedKeys.higher(firstNode);
+        System.out.println("Debug: Out of "+keySet);
+        System.out.println("Debug: firstNode = "+firstNode);
+        System.out.println("Debug: secondNode = "+secondNode);
+
+        return nodeObjectsById.get(secondNode);
     }
 }
