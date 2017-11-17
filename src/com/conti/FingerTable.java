@@ -6,10 +6,18 @@ import java.util.TreeSet;
 
 public class FingerTable {
     private HashMap<Integer, Node> table;
+    private int[][] tableAsIntegers;
+    private UserInput userInput;
 
     public FingerTable(UserInput userInput, Node node, HashMap<Integer, Node> nodeObjectsById) {
         this.table = new HashMap<>();
-        int[][] tableKeyValuePairs = computeTable(node, userInput);
+        tableAsIntegers = computeTable(node, userInput);
+        this.userInput = userInput;
+        for(int i = 0; i < userInput.getB(); i++){
+            int key = tableAsIntegers[i][0];
+            Node value = nodeObjectsById.get(tableAsIntegers[i][1]);
+            table.put(key, value);
+        }
     }
 
     public HashMap<Integer, Node> getTable() {
@@ -22,13 +30,11 @@ public class FingerTable {
         int tableKey, tableValue;
         final int NUMBER_OF_COLUMNS = 2;
         int[][] tableAsIntegers = new int[numberOfTableRows][NUMBER_OF_COLUMNS];
-        System.out.println("");
-        System.out.println("Debug: nodeId = "+nodeId);
         for(int i = 0; i < numberOfTableRows; i++){
             tableKey = (int) (nodeId + Math.pow(2,i));
-            //TODO if the tableKey is too high (above 2^b id spaces), tableKey = tableKey - MAX_ID_SPACE
-            System.out.println("Debug: tableKey = "+tableKey);
             tableValue = determineClosestNode(tableKey, Node.allExistingNodeIds.keySet(), userInput);
+            tableAsIntegers[i][0]=tableKey;
+            tableAsIntegers[i][1]=tableValue;
         }
         return tableAsIntegers;
     }
@@ -54,10 +60,26 @@ public class FingerTable {
                 closestNode = sortedKeys.first();
             }
         }
-
-
-        System.out.println("Out of keys: "+sortedKeys);
-        System.out.println("Closest node value to "+key + " is " +closestNode);
         return closestNode;
+    }
+
+    public void getSortedTable(){
+        //returns some Object which contains the sortedTable, starting with the lowest node and going to the highest
+
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        String a = "|   FingerTable  |\n";
+        sb.append(a);
+        for(int i = 0; i < userInput.getB(); i++){
+            int key = tableAsIntegers[i][0];
+            int value = tableAsIntegers[i][1];
+            sb.append("|   "+key+"   |, ");
+            sb.append(value + "   |\n");
+
+        }
+        return sb.toString();
     }
 }

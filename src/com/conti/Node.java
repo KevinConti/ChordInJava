@@ -54,4 +54,9 @@ public class Node {
     public void setFingerTable(FingerTable fingerTable) {
         this.fingerTable = fingerTable;
     }
+
+    @Override
+    public String toString() {
+        return "N"+this.getNodeId();
+    }
 }
