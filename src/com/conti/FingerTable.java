@@ -1,3 +1,5 @@
+package com.conti;
+
 import java.util.HashMap;
 
 public class FingerTable {

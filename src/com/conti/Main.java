@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
         UserInput input = getUserInput();
-        //HashMap<Integer, Node> nodeObjectsById = createNodes(input);
+        //HashMap<Integer, com.conti.Node> nodeObjectsById = createNodes(input);
         //createFingerTables(input, nodeObjectsById)  may need to send in some args
         //createRandomKeyId(input);
         //display
