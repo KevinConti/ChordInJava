@@ -14,17 +14,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/conti/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="105" column="96" lean-forward="true" selection-start-line="105" selection-start-column="96" selection-end-line="105" selection-end-column="96" />
+            <state relative-caret-position="201">
+              <caret line="107" column="32" lean-forward="false" selection-start-line="107" selection-start-column="32" selection-end-line="107" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -92,8 +92,8 @@
         <option value="$PROJECT_DIR$/src/NodeTest.java" />
         <option value="$PROJECT_DIR$/src/com/conti/Node.java" />
         <option value="$PROJECT_DIR$/src/com/conti/FingerTable.java" />
-        <option value="$PROJECT_DIR$/src/com/conti/Main.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/com/conti/Main.java" />
       </list>
     </option>
   </component>
@@ -292,7 +292,7 @@
       <updated>1510509891375</updated>
       <workItem from="1510509895189" duration="8255000" />
       <workItem from="1510936666460" duration="140000" />
-      <workItem from="1510978357666" duration="1999000" />
+      <workItem from="1510978357666" duration="2070000" />
     </task>
     <servers />
   </component>
@@ -329,7 +329,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27144000" />
+    <option name="totallyTimeSpent" value="27215000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="796" extended-state="0" />
@@ -675,14 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/conti/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="105" column="96" lean-forward="true" selection-start-line="105" selection-start-column="96" selection-end-line="105" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -691,6 +683,14 @@
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/conti/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="107" column="32" lean-forward="false" selection-start-line="107" selection-start-column="32" selection-end-line="107" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>

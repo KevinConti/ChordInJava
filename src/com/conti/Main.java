@@ -105,7 +105,7 @@ public class Main {
         if (sortedTable.higherKey(keyId-1) != null){
             //TODO if answerKey (below) < keyId then it is a fake value. Instead, use last value
             int answerKey = sortedTable.higherKey(keyId-1);
-            System.out.println("Debug: Answer is " + sortedTable.get(answerKey));
+            System.out.println("Answer is " + sortedTable.get(answerKey));
             answerNode = sortedTable.get(answerKey);
         } else {
             Node lastNode = sortedTable.lastEntry().getValue();
