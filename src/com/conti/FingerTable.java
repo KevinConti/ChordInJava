@@ -2,10 +2,12 @@ package com.conti;
 
 import java.util.HashMap;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class FingerTable {
     private HashMap<Integer, Node> table;
+    private TreeMap<Integer, Node> sortedTable;
     private int[][] tableAsIntegers;
     private UserInput userInput;
 
@@ -18,10 +20,15 @@ public class FingerTable {
             Node value = nodeObjectsById.get(tableAsIntegers[i][1]);
             table.put(key, value);
         }
+        sortedTable = new TreeMap<>(table);
     }
 
     public HashMap<Integer, Node> getTable() {
         return table;
+    }
+
+    public TreeMap<Integer, Node> getSortedTable(){
+        return sortedTable;
     }
 
     private int[][] computeTable(Node node, UserInput userInput){
@@ -63,11 +70,6 @@ public class FingerTable {
         return closestNode;
     }
 
-    public void getSortedTable(){
-        //returns some Object which contains the sortedTable, starting with the lowest node and going to the highest
-
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -76,7 +78,11 @@ public class FingerTable {
         for(int i = 0; i < userInput.getB(); i++){
             int key = tableAsIntegers[i][0];
             int value = tableAsIntegers[i][1];
-            sb.append("|   "+key+"   |, ");
+            if(key < 10){
+                sb.append("|   "+key+"     |  ");
+            }else {
+                sb.append("|   " + key + "   |  ");
+            }
             sb.append(value + "   |\n");
 
         }

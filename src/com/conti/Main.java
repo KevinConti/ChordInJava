@@ -13,6 +13,8 @@ public class Main {
         System.out.println("");
         System.out.println("The randomKeyId is "+randomKey);
         System.out.println("The starting node will be "+nStart);
+        System.out.println("Let's begin!");
+        doChord(nStart, randomKey);
     }
 
     private static UserInput getUserInput() {
@@ -70,7 +72,6 @@ public class Main {
         for(Node node: allNodes){
             FingerTable fingerTable = new FingerTable(userInput, node, nodeObjectsById);
             node.setFingerTable(fingerTable);
-            System.out.println("Debug: Finger Table = \n"+fingerTable);
         }
     }
 
@@ -86,10 +87,31 @@ public class Main {
         TreeSet<Integer> sortedKeys = new TreeSet<>(keySet);
         int firstNode = sortedKeys.first();
         int secondNode = sortedKeys.higher(firstNode);
-        System.out.println("Debug: Out of "+keySet);
-        System.out.println("Debug: firstNode = "+firstNode);
-        System.out.println("Debug: secondNode = "+secondNode);
 
         return nodeObjectsById.get(secondNode);
+    }
+
+    private static void doChord(Node startNode, int keyToFind){
+        Node answerNode = findNodeInTable(startNode, keyToFind);
+    }
+
+    private static Node findNodeInTable(Node currentNode, int keyId){
+        Node answerNode;
+        FingerTable fingerTable = currentNode.getFingerTable();
+        System.out.println("");
+        System.out.println("Finger Table for "+currentNode);
+        System.out.println(fingerTable);
+        TreeMap<Integer, Node> sortedTable = fingerTable.getSortedTable();
+        if (sortedTable.higherKey(keyId-1) != null){
+            //TODO if answerKey (below) < keyId then it is a fake value. Instead, use last value
+            int answerKey = sortedTable.higherKey(keyId-1);
+            System.out.println("Debug: Answer is " + sortedTable.get(answerKey));
+            answerNode = sortedTable.get(answerKey);
+        } else {
+            Node lastNode = sortedTable.lastEntry().getValue();
+            answerNode = findNodeInTable(lastNode, keyId);
+        }
+
+        return answerNode;
     }
 }
